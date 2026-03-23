@@ -8,6 +8,18 @@ using namespace std;
 //void square(int&);
 
 int main(){
+    Time t1,t2,t3;
+    cout<<"What time was it?";
+    t1.getTime();
+    t1.display();
+    
+    cout<<"What time was it?";
+    t2.getTime();
+    t2.display();
+   
+    t3=t2.subtract(t1);
+    t3.display();
+
     /*
     int age;
     string colour;
@@ -19,7 +31,7 @@ int main(){
     cout<<"Colour: "<<setw(10)<<colour<<endl;
     square(age);
     cout<<age<<endl;
-    */
+    
     
     struct Time t1,t2,t3;
     cout<<"What time was it?";
@@ -29,6 +41,7 @@ int main(){
     t3=subtract(t2,t1); //t3=t2-t1
     cout<<"Time diff is ";
     display(t3);
+    */
 }
 
 void square(int &x){
