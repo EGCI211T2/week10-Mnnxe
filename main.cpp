@@ -9,15 +9,17 @@ using namespace std;
 
 int main(){
     Time t1,t2,t3;
-    cout<<"What time was it?";
+    cout<<"What time was it?"<<endl;
     t1.getTime();
     t1.display();
     
-    cout<<"What time was it?";
+    cout<<"What time was it?"<<endl;
     t2.getTime();
     t2.display();
    
-    t3=t2.subtract(t1);
+    t3=t2-t1; //t2.operator-(t1)
+    //t3=t3-10;//t2.operator-(10)
+    ++t3;
     t3.display();
 
     /*

@@ -4,9 +4,16 @@ private:
 public:
 	void set_time(int=0,int=0,int=0);
 	void display();
-	Time subtract(Time);
 	void getTime();
+	Time subtract(Time);
+	Time operator-(Time);
+	Time operator-(int);
+	void operator++();
 };
+
+//create 3 functions
+//void getTime(struct Time &t);
+//void display(struct Time t);
 
 void Time::set_time(int a, int b, int c){
 	if(a>0&&a<=24) h = a; else h = 0;
@@ -14,11 +21,9 @@ void Time::set_time(int a, int b, int c){
 	if(c>0&&c<60) s = c; else h = 0;
 }
 
-
-//create 3 functions
-//void getTime(struct Time &t);
-//void display(struct Time t);
-
+void Time::operator++(){
+	m+=10;
+}
 //1.  getTime function
 void Time::getTime(){
 	cout<<"Enter Time: ";
@@ -45,6 +50,34 @@ Time Time::subtract(Time t1){
 	t.m = (time_diff%3600)/60;
 	t.s = (time_diff%3600)%60;
 
+	return t;
+}
+
+Time Time::operator-(Time t1){
+	Time t;
+	int time_t1,time_t2,time_diff;
+	time_t1 = h*60*60;
+	time_t1 += m*60;
+	time_t1 += s;
+
+	time_t2 = t1.h*60*60;
+	time_t2 += t1.m*60;
+	time_t2 += t1.s;
+
+	if(time_t1<time_t2) time_t1+=24*60*60;
+
+	time_diff = time_t1-time_t2;
+	t.h = time_diff/3600;
+	t.m = (time_diff%3600)/60;
+	t.s = (time_diff%3600)%60;
+
+	return t;
+}
+//ลบนาที
+Time Time::operator-(int x){
+	Time t;
+	t.m-=x;
+	//t.set_time();
 	return t;
 }
 
